@@ -27,9 +27,7 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
   var Auth = FireBase.authenticate();
   $scope.auth = Auth;
   $scope.auth.$onAuth(function(authData) {
-    $scope.authData = authData;
-    var currentUser = FireBase.getObject('/users/' + authData.uid);
-    console.log(currentUser);
+    $scope.currentUser = FireBase.getObject('/users/' + authData.uid);
   });
 
   $scope.createUser = function() {
@@ -44,7 +42,7 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
       password: $scope.password
     }).then(function(userData) {
       $scope.message = "User created with uid: " + userData.uid;
-      $scope.users.$add({
+      $scope.users.$ref().child(userData.uid).set({
         email: $scope.email,
         createdAt: date.toString()
       });
