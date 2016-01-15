@@ -4,7 +4,7 @@ var fb = new Firebase('https://angular-roomies.firebaseio.com');
 
 var app = angular.module('app', [
   'ngLoadingSpinner',
-  'firebase'
+  'firebase',
   'apartmentControllers',
   'ui.router',
   'angularMoment'
@@ -20,7 +20,18 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'views/login.html'
+    templateUrl: 'views/auth/login.html',
+    controller: 'HomeController'
+  })
+  .state('apartment', {
+    url: '/apartment',
+    templateUrl: 'views/apartment/settings.html',
+    controller: 'ApartmentSettings'
+  })
+  .state('newApartment', {
+    url: '/new-apartment',
+    templateUrl: 'views/apartment/new.html',
+    controller: 'NewApartment'
   });
 }]);
 
@@ -28,11 +39,13 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
   $scope.siteName = 'Roomies';
   $scope.version = '1.0';
   $scope.currentUser = null;
-
+  $scope.loggedIn = false;
   var Auth = FireBase.authenticate();
   $scope.auth = Auth;
+
   $scope.auth.$onAuth(function(authData) {
     $scope.currentUser = FireBase.getObject('/users/' + authData.uid);
+    $scope.loggedIn = true;
   });
 
   $scope.createUser = function() {
@@ -78,9 +91,15 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
     }).then(function(data) {
       this.email = null;
       this.password = null;
-      $state.reload();
     }).catch(function(error) {
       console.log(error);
     });
   };
+
+  $scope.logout = function() {
+    fb.unauth();
+    window.localStorage.removeItem("firebase:session::angular-roomies");
+    location.reload();
+    $scope.loggedIn = false;
+  }
 });

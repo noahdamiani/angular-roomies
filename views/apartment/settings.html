@@ -1,0 +1,36 @@
+<h1>Settings</h1>
+<hr>
+
+<div class="row">
+	<div class="large-12 columns">
+	  <label>Address:
+	    <input type="text" placeholder="City" ng-model="myApartment.address.street">
+	  </label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+	  <label>City: 
+	    <input type="text" placeholder="City" ng-model="myApartment.address.city">
+	  </label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+	  <label>State:
+	    <input type="text" placeholder="City" ng-model="myApartment.address.state">
+	  </label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+	  <label>Zipcode:
+	    <input type="text" placeholder="City" ng-model="myApartment.address.zipcode">
+	  </label>
+	</div>
+</div>
+
+<button class="button" ng-click="saveApartment()">Save Apartment</button>
