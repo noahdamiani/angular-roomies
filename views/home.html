@@ -1,28 +1,46 @@
-<h1>Sign Up</h1>
+<div class="row">
+    <div class="large-12 columns">
+      <div class="signup-panel">
+        <h1 class="welcome">Sign Up</h1>
+        <form>
+          <div class="row collapse">
+            <div class="small-1 columns">
+              <span class="prefix"><i class="fa fa-user"></i></span>
+            </div>
+            <div class="small-11  columns">
+              <input type="text" placeholder="name" ng-model="name">
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-1 columns">
+              <span class="prefix"><i class="fa fa-usd"></i></i></span>
+            </div>
+            <div class="small-11  columns">
+              <input type="text" placeholder="rent" ng-model="rent">
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-1 columns">
+              <span class="prefix"><i class="fa fa-envelope-o"></i></span>
+            </div>
+            <div class="small-11  columns">
+              <input type="email" placeholder="email" ng-model="email">
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-1 columns ">
+              <span class="prefix"><i class="fa fa-lock"></i></span>
+            </div>
+            <div class="small-11 columns ">
+              <input type="password" placeholder="password" ng-model="password">
+            </div>
+          </div>
+        </form>
+        <a href="#" class="button" ng-click="createUser()">Sign Up! </a>
+         <p>Already have an account? <a ui-sref="login">Login here &raquo</a></p>
+      </div>
+    </div>
+   </div>
 
-Current User Logged In: {{currentUser.email}}
-
-<div>
-  Email: <input type="text" ng-model="email">
-  Password: <input type="text" ng-model="password">
-
-  <br><br>
-
-  <button ng-click="createUser()">Create User</button>
-
-  <br><br>
-
-  <button ng-click="removeUser()">Remove User</button>
-
-  <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+     <p ng-if="message">Message: <strong>{{ message }}</strong></p>
   <p ng-if="error">Error: <strong>{{ error }}</strong></p>
-</div>
-
-
-<form>
-  <label>Email</label>
-  <input ng-model="user.email" type="text">
-  <label>Password</label>
-  <input type="password" ng-model="user.password" type="text">
-  <button class="md-raised md-warn" ng-click="login()">Login</button>
-</form>

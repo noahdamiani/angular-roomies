@@ -4,7 +4,8 @@ var fb = new Firebase('https://angular-roomies.firebaseio.com');
 
 var app = angular.module('app', [
   'ngLoadingSpinner',
-  'firebase',
+  'firebase'
+  'apartmentControllers',
   'ui.router',
   'angularMoment'
 ]);
@@ -17,6 +18,10 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
     templateUrl: 'views/home.html',
     controller: 'HomeController'
   })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'views/login.html'
+  });
 }]);
 
 app.controller('HomeController', function ($scope, $state, FireBase) {
@@ -36,13 +41,14 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
     $scope.error = null;
     $scope.users = FireBase.getArray('/users');
     var date = new Date();
-
     Auth.$createUser({
       email: $scope.email,
       password: $scope.password
     }).then(function(userData) {
       $scope.message = "User created with uid: " + userData.uid;
       $scope.users.$ref().child(userData.uid).set({
+        name: $scope.name,
+        rent: $scope.rent,
         email: $scope.email,
         createdAt: date.toString()
       });
