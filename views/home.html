@@ -1,5 +1,7 @@
 <h1>Sign Up</h1>
 
+Current User Logged In: {{currentUser.email}}
+
 <div>
   Email: <input type="text" ng-model="email">
   Password: <input type="text" ng-model="password">
@@ -15,3 +17,12 @@
   <p ng-if="message">Message: <strong>{{ message }}</strong></p>
   <p ng-if="error">Error: <strong>{{ error }}</strong></p>
 </div>
+
+
+<form>
+  <label>Email</label>
+  <input ng-model="user.email" type="text">
+  <label>Password</label>
+  <input type="password" ng-model="user.password" type="text">
+  <button class="md-raised md-warn" ng-click="login()">Login</button>
+</form>

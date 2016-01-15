@@ -14,6 +14,12 @@ function getFireBaseService($firebaseArray, $firebaseObject, $firebaseAuth) {
     authenticate: function() {
        var ref = new Firebase("https://angular-roomies.firebaseio.com");
        return $firebaseAuth(ref);
+    },
+    getLoggedInUser: function() {
+      var user = localStorage.getItem('firebase:session::angular-roomies');
+      if(user) {
+        return JSON.parse(user);
+      }
     }
   }
 }
