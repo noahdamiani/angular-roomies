@@ -91,6 +91,7 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
     }).then(function(data) {
       this.email = null;
       this.password = null;
+      $state.go('home');
     }).catch(function(error) {
       console.log(error);
     });

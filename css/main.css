@@ -289,26 +289,26 @@ textarea {
     padding: 1em;
 }
 
-.all-jobs {
+.activity {
     list-style: none;
     margin-top: -0.5em;
     font-size: 14px;
 }
 
-.all-jobs a:first-child {
+.activity a:first-child {
     color: inherit;
     display: block;
     height: 100%;
     width: 100%;
 }
 
-.all-jobs li {
+.activity li {
     border-bottom: 1px solid #d5d5d5;
-    padding: 1em 0;
+    padding: 1em 0 2.5em 0;
     position: relative;
 }
 
-.all-jobs li a div:first-of-type {
+.activity li a div:first-of-type {
     font-weight: bold;
 }
 

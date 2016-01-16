@@ -1,0 +1,10 @@
+<h1>Recent Activity</h1>
+<ul class="activity">
+  <li ng-repeat="activity in activities">
+    <a>
+      <div class="medium-2 columns">{{activity.name}}</div>
+      <div class="medium-4 columns">{{activity.desc}}</div>
+      <div class="medium-6 columns">{{activity.time |amCalendar}}</div>
+    </a>
+  </li>
+</ul>

@@ -1,9 +1,27 @@
-{{currentUser.email}}
-
-<form>
-  <label>Email</label>
-  <input ng-model="user.email" type="text">
-  <label>Password</label>
-  <input type="password" ng-model="user.password" type="text">
-  <button class="md-raised md-warn" ng-click="login()">Login</button>
-</form>
+<div class="row">
+  <div class="signup-panel">
+    <p class="welcome"><strong>Login to {{siteName}} {{version}}</strong></p>
+    <form>
+      <div class="row collapse">
+        <div class="small-1  columns">
+          <span class="prefix"><i class="fa fa-user"></i></span>
+        </div>
+        <div class="small-11  columns">
+           	<label>Email</label>
+				<input ng-model="user.email" type="text">
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="small-1 columns">
+          <span class="prefix"><i class="fa fa-lock"></i></span>
+        </div>
+        <div class="small-11  columns">
+          	<label>Password</label>
+			<input type="password" ng-model="user.password" type="text">
+        </div>
+      </div>
+    </form>
+    <button class="button" ng-click="login()">Login</button>
+     <p>Don't have an account? <a ui-sref="home">Sign up here &raquo</a></p>
+  </div>
+</div>
