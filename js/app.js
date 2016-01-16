@@ -100,7 +100,6 @@ app.controller('HomeController', function ($scope, $state, FireBase) {
   $scope.logout = function() {
     fb.unauth();
     window.localStorage.removeItem("firebase:session::angular-roomies");
-    location.reload();
-    $scope.loggedIn = false;
+    $state.go('login');
   }
 });
