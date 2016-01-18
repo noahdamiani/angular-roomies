@@ -6,6 +6,7 @@ var app = angular.module('app', [
   'ngLoadingSpinner',
   'firebase',
   'apartmentControllers',
+  'mapsControllers',
   'ui.router',
   'angularMoment'
 ]);
@@ -32,6 +33,11 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
     url: '/new-apartment',
     templateUrl: 'views/apartment/new.html',
     controller: 'NewApartment'
+  })
+  .state('map', {
+    url: '/map',
+    templateUrl: 'views/map.html',
+    controller: 'mapController'
   });
 }]);
 

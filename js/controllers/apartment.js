@@ -1,6 +1,6 @@
 var apartmentControllers = angular.module('apartmentControllers', []);
 
-apartmentControllers.controller('ApartmentSettings', function ($scope, $state, FireBase) {
+apartmentControllers.controller('ApartmentSettings', function ($scope, $rootScope, $state, FireBase) {
     $scope.auth = FireBase.authenticate();
     $scope.auth.$onAuth(function(authData) {
       $scope.currentUser = $scope.$parent.currentUser;
